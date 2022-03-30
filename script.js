@@ -33,7 +33,7 @@ numbers.forEach((number) => {
 
 const operators = document.querySelectorAll(".operator");
 
-numbers.forEach((operator) => {
+operators.forEach((operator) => {
     operator.addEventListener("click", (event) => {
         inputOperator(event.target.value);
     }); 
@@ -108,4 +108,22 @@ inputDecimal = (dot) => {
     } 
     currentNumber += dot;
 };
+
+const percentages = document.querySelector(".percentage");
+
+percentages.addEventListener("click", (event) => {
+    percenting()
+});
+
+percenting = (nyeh) =>{
+    if (prevNumber === "") {
+        currentNumber = currentNumber/100;
+        updateScreen(currentNumber);
+    } 
+    if (prevNumber !== "") {
+        currentNumber = (prevNumber*currentNumber)/100;
+        updateScreen(currentNumber);
+    }
+};
+
 /**/
