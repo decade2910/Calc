@@ -15,13 +15,19 @@ numbers.forEach((number) => {
 let prevNumber = "";
 let calculationOperator = "";
 let currentNumber = "";
+let result = "";
 
 const inputNumber = (number) => {
     if (currentNumber === "0") {
         currentNumber = number
+    } else if (result !== "") {
+        clearAll()
+        currentNumber = "";
+        currentNumber = number
     } else {
         currentNumber += number
     }
+    
 }
 
 numbers.forEach((number) => {
@@ -61,7 +67,6 @@ equalSign.addEventListener("click", () => {
 })
 
 const calculate = () => {
-    let result = "";
     switch(calculationOperator) {
         case "+":
             result = parseFloat(prevNumber) + parseFloat(currentNumber)
@@ -93,6 +98,7 @@ const clearAll = () => {
     prevNumber = "";
     calculationOperator = "";
     currentNumber = "0";   
+    result = "";
 }
 
 const decimals = document.querySelector(".decimal");
